@@ -2,6 +2,7 @@ import React from 'react';
 import './Home.css';
 import Cart from '../Cart/Cart';
 import useTshirt from '../../hooks/useTshirt';
+import TShirt from '../TShirt/TShirt';
 
 
 const Home = () => {
@@ -9,7 +10,12 @@ const Home = () => {
     return (
         <div className='home-container'>
             <div className="tshirt-container">
-                <h3>{tShirts.length}</h3>
+               {
+                   tShirts.map(tShirt => <TShirt
+                   key={tShirt._id}
+                   tShirt={tShirt}
+                   ></TShirt>)
+               }
             </div>
             <div className="cart-container">
                 <Cart></Cart>
